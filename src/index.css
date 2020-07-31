@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --primary: #e50914;
+  --secondary: #B81D24;
+  --black: #221f1f;
+  --blackLighter: #9E9E9E;
+  --grayLight: #F5F5F1;
+  --grayMedium: #e5e5e5; 
+  --white: #FFFFFF;
+  --frontEnd: #6BD1FF;
+  --backEnd: #00C86F;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+} 
