@@ -9,14 +9,19 @@ import Footer from '../../components/Footer';
 
 
 function Home() {
+  //Peguei essa função de aleatorizar da Github/KellyTrindade, obrigado!
+  const categoria = Math.floor( ( Math.random() * dadosIniciais.categorias.length ) )
+  const video = Math.floor( ( Math.random() * dadosIniciais.categorias[categoria].videos.length ) )
+
   return (
     <div style={{background: "#141414"}}>
       <Menu />
 
       <BannerMain 
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-        url={dadosIniciais.categorias[0].videos[0].url}
-        videoDescription={"O que é Front-End?"}
+        videoTitle={dadosIniciais.categorias[categoria].videos[video].titulo}
+        url={dadosIniciais.categorias[categoria].videos[video].url}
+        videoDescription={dadosIniciais.categorias[categoria].videos[video].descricao}
+        banner={dadosIniciais.categorias[categoria].videos[video].banner}
       />
 
       <Carousel
