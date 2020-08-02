@@ -28,7 +28,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL_BACKEND = 'http://localhost:3333/categorias';
+    const URL_BACKEND = window.location.hostname.includes('localhost')
+      ? 'http://localhost:3333/categorias'
+      : 'http://cursosflix.herokuapp.com/categorias';
     fetch(URL_BACKEND)
       .then(async (response) => {
         const data = await response.json();
