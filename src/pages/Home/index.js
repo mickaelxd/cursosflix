@@ -1,56 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import dadosIniciais from '../../data/dados_iniciais.json';
-
-import Menu from '../../components/Menu';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
-import Footer from '../../components/Footer';
+import categoriesRepository from '../../repositories/categories';
+import PageDefault from '../../components/PageDefault';
 
 function Home() {
-  // Peguei essa função de aleatorizar da Github/KellyTrindade, obrigado!
-  const categoria = Math.floor((Math.random() * dadosIniciais.categorias.length));
-  const video = Math.floor((Math.random() * dadosIniciais.categorias[categoria].videos.length));
+  const [initialData, setInitialData] = useState([]);
+
+  useEffect(() => {
+    categoriesRepository.getVideos()
+      .then((CategoriesWithVideos) => {
+        setInitialData(CategoriesWithVideos);
+        console.log('videos', CategoriesWithVideos);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   return (
-    <div style={{ background: '#141414' }}>
-      <Menu />
+    <PageDefault paddingAll={0}>
 
-      <BannerMain
-        videoTitle={dadosIniciais.categorias[categoria].videos[video].titulo}
-        url={dadosIniciais.categorias[categoria].videos[video].url}
-        videoDescription={dadosIniciais.categorias[categoria].videos[video].descricao}
-        banner={dadosIniciais.categorias[categoria].videos[video].banner}
-      />
+      {initialData.length === 0 && (<div> Loading... </div>)}
 
-      <Carousel
-        ignoreFirstVideo
-        category={dadosIniciais.categorias[0]}
-      />
+      {initialData.map((category, index) => {
+        if (index === 0) {
+          // Peguei essa função de aleatorizar da Github/KellyTrindade, obrigado!
+          const maxCategory = Math.floor((Math.random() * initialData.length));
+          const maxVideo = Math.floor((Math.random() * initialData[maxCategory].videos.length));
 
-      <Carousel
-        category={dadosIniciais.categorias[1]}
-      />
+          return (
+            <React.Fragment key={category.id}>
 
-      <Carousel
-        category={dadosIniciais.categorias[2]}
-      />
+              <BannerMain
+                videoTitle={initialData[maxCategory].videos[maxVideo].title}
+                url={initialData[maxCategory].videos[maxVideo].url}
+                videoDescription={initialData[maxCategory].videos[maxVideo].descricao}
+                banner={initialData[maxCategory].videos[maxVideo].banner}
+              />
 
-      <Carousel
-        category={dadosIniciais.categorias[3]}
-      />
+              <Carousel
+                category={initialData[0]}
+              />
+            </React.Fragment>
+          );
+        }
 
-      <Carousel
-        category={dadosIniciais.categorias[4]}
-      />
+        return (
+          <Carousel
+            key={category.id}
+            category={initialData[category.index]}
+          />
+        );
+      })}
 
-      <Carousel
-        category={dadosIniciais.categorias[5]}
-      />
-
-      <Footer />
-
-    </div>
+    </PageDefault>
   );
 }
 

@@ -2,8 +2,37 @@
   "categorias": [
     {
       "id": 1,
-      "name": "FrontEnd",
-      "description": "Categoria 1"
+      "title": "Cursos React",
+      "link_extra": {
+        "text": "Cursos de React",
+        "url": "https://www.youtube.com/channel/UCzR2u5RWXWjUh7CwLSvbitA"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "title": "Do Zero Ao React - Como criar seu próprio React",
+      "url": "https://www.youtube.com/watch?v=5MzOCxSWrrc"
+    },
+    {
+      "title": "React JS Curso Rápido ⚛️ Masterclass #1 2020 - 100% Prático!",
+      "url": "https://www.youtube.com/watch?v=XQxitgyZ_S4",
+      "categoriaId": 1,
+      "id": 2
+    },
+    {
+      "title": "React JS - Criando um App do Zero - Programador Br",
+      "url": "https://www.youtube.com/watch?v=tbLziJchz48",
+      "categoriaId": 1,
+      "id": 3
+    },
+    {
+      "title": "Curso ReactJS - Introdução (Aula 1)",
+      "url": "https://www.youtube.com/watch?v=y08X0vpd6q4&feature=youtu.be",
+      "categoriaId": 1,
+      "id": 4
     }
   ]
 }

@@ -16,6 +16,7 @@ export default function BannerMain({
   url,
 }) {
   const youTubeID = getYouTubeId(url);
+  // Criar um teste se não existir maxresdefault, usar hqdefault
   const bgUrl = `https://img.youtube.com/vi/${youTubeID}/maxresdefault.jpg`;
 
   return (
