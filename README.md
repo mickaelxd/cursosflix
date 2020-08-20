@@ -8,9 +8,9 @@ Nesse projeto é possível cadastrar um novo vídeo e verificar ele na página i
 
 Após o projeto ter sido finalizado, senti a necessidade de implementar algumas funcionalidades extras.
 
-[] Criar um local-storage, não só utilizando o json-server.
-[] Criar um vínculo com o Youtube API.
-[] Pegar playlists e transformar em fileiras de vídeos.
+[ ] Criar um local-storage, não só utilizando o json-server.
+[ ] Criar um vínculo com o Youtube API.
+[ ] Pegar playlists e transformar em fileiras de vídeos.
 
 # Contribuições
 
